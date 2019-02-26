@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1、原始类型,原始类型存储的都是值，没有函数可以调用
+null不是对象类型，
+
+boolean
+null
+undefined
+number
+string
+symbol
+
+2、对象类型
+原始类型存储的是值，对象类型存储的是内存地址，
+3、typeof 和 instanceof
+typeof 对于原始类型，除了null显示为object（不准确），其他的都是准确的
+对于对象类型，除了函数会显示function，其他都显示为object
+
+instanceof ，正确判断对象的
+
+
+
+
+浅copy ，copy值
+ 3种方法
+ 1、let b = Object.assign({}, a)
+ 2、let b = { ...a }
+深copy ，copy引用地址
+ 1、JSON.parse(JSON.stringify(object))，
+    缺点 忽略 undefined，symbol，不能序列化函数，不能解决循环引用的对象
+ 2、
+<script type="text/javascript">
+  function test(person) {//传参是传的是对象指针的的副本
+    person.age = 26
+    person = {//重新分配内存地址，person于传进来的参数就无关系了
+      name: 'yyy',
+      age: 30
+    }
+    return person
+  }
+
+  const p1 = {
+    name: 'xxx',
+    age: 25
+  }
+  const p2 = test(p1)
+  console.log(p1)
+  console.log(p2)
+
+  function a() {
+    return () => {
+      return () => {
+        console.log(this)
+      }
+    }
+  }
+
+  console.log(a()()())
+
+  if ([] == ![]) {
+    console.log('1')
+  } else {
+    console.log('2')
+  }
+  [] == ![] =>
+  [] == false =>
+  [] == 0 =>
+  [].valueOf()[.toString()] == 0 =>
+  "" == 0 =>
+  0 == 0
+</script>
+</body>
+</html>
