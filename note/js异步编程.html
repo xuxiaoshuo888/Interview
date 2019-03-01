@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+回调地狱问题
+<p>一、generator，是一个状态机，
+    执行generate函数返回一个指向内部状态的指针对象（遍历器对象Iterator Object），
+    特点 function之前有*，yield表达式，yield暂停执行，next继续执行,
+    next(arg) 里面可以传参数</p>
+<script type="text/javascript">
+  function* gen(x) {
+    let y = 2 * (yield (2 + x))
+    let z = yield (y / 2)
+    return (x + y + z)
+  }
+
+  let temp = gen(5)
+  console.log(temp.next()) //=>
+  console.log(temp.next())
+  console.log(temp.next())
+  console.log(temp.next())
+  debugger
+</script>
+
+
+<p>二、Promise，3种状态
+    等待中（pending）
+    完成了 （resolved）
+    拒绝了（rejected）
+    1、等待状态变成为其他状态就永远不能更改状态了
+    2、构造 Promise 的时候，构造函数内部的代码是立即执行的
+</p>
+
+</body>
+</html>
