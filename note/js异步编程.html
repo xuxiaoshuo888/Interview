@@ -32,7 +32,22 @@
     拒绝了（rejected）
     1、等待状态变成为其他状态就永远不能更改状态了
     2、构造 Promise 的时候，构造函数内部的代码是立即执行的
+    3、async相当于*    await相当于yield
 </p>
+<p>三、常用定时器
+   setTimeout
+    setInterval
+    requestAnimationFrame
+</p>
+<script type="text/javascript">
+    function demo1(){
+      setInterval(function(){
+        console.log(2)
+      },2000)
+
+    }
+    demo1()
+</script>
 
 </body>
 </html>
